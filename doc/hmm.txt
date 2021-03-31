@@ -1,0 +1,36 @@
+*hmm.txt* Find out what you did today
+
+Author:  Paul Meinhardt <https://github.com/pmeinhardt>
+License: Same as `hmm` itself (see https://github.com/pmeinhardt/hmm)
+
+INTRODUCTION                                    *hmm*
+
+…
+
+COMMANDS                                        *hmm-commands*
+
+These commands integrate the `hmm` command-line utility with Vim.
+
+                                                *:Hmm* *hmm-:Hmm*
+:Hmm[!] [args]          Invoke `hmm [args]` and load the output into a buffer.
+                        If the current buffer is not associated with a file
+                        and empty, or if ! is given, overwrite the current
+                        buffer contents. Otherwise open a new one.
+
+MAPS                                            *hmm-maps*
+
+<localleader>,          Join all lines into one separated by ", ".
+
+<localleader>;          Join all lines into one separated by "; ".
+
+<localleader>-          Prefix all lines with "- " to make a list.
+
+<localleader><localleader> Yank the buffer contents into "+ (see |registers|).
+
+ABOUT                                           *hmm-about*
+
+Grab the latest version or report a bug on GitHub:
+
+https://github.com/pmeinhardt/hmm
+
+ vim:tw=78:et:ft=help:norl:

@@ -1,0 +1,70 @@
+#!/usr/bin/env bash
+
+# Find out what you did today
+#
+# Lists all your commits from repos found in the given paths.
+# Use it to prepare your daily stand-up or to write job logs.
+#
+# Uses `git`, depends on `fd` - install via `brew install fd`.
+
+set -o errexit
+set -o pipefail
+set -o nounset
+
+# For debugging, uncomment:
+# set -o xtrace
+
+# Configure defaults
+
+maxdepth=3
+since='1 day ago'
+
+# Utility functions
+
+function help {
+  echo "Usage:"
+  echo ""
+  echo "  hmm [--max-depth depth] [--since duration] [path...]"
+  echo ""
+  echo "Examples:"
+  echo ""
+  echo "  hmm --since '1 week ago' ~/code/project-x"
+  echo "  hmm | fzf --multi"
+  echo "  hmm | vim -"
+  echo "  hmm | ruby -e 'print STDIN.readlines.map(&:strip).join(\"; \")' | pbcopy"
+  exit 0
+}
+
+# Parse arguments
+
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --max-depth)
+      shift
+      maxdepth="$1"
+      ;;
+    --since)
+      shift
+      since="$1"
+      ;;
+    --help)
+      help
+      ;;
+    *)
+      break
+      ;;
+  esac
+  shift
+done
+
+# Run
+
+searchlog="git --git-dir={} --no-pager log --author=\"<\$(git --git-dir={} config user.email)>\" --branches='*' --since='{$since}' --pretty=tformat:'%s'"
+
+exec fd \
+  --max-depth "$maxdepth" \
+  --type d \
+  --hidden \
+  --exec bash -c "$searchlog" \; \
+  '^\.git$' \
+  "$@"
