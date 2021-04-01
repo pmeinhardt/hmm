@@ -1,0 +1,39 @@
+name: Checks
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  prettier:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - name: Run prettier
+        run: npx prettier --check '**/*.md'
+  shellcheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run shellcheck
+        run: |
+          docker run \
+            --rm \
+            --volume "$PWD:/mnt" \
+            koalaman/shellcheck:stable \
+            bin/hmm
+  yamllint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run yamllint
+        run: |
+          docker run \
+            --rm \
+            --volume "$PWD:/yaml" \
+            sdesbure/yamllint \
+            yamllint \
+            .github/workflows/main.yml

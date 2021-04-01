@@ -1,5 +1,7 @@
 # hmm
 
+[![Checks](https://github.com/pmeinhardt/hmm/actions/workflows/main.yml/badge.svg)](https://github.com/pmeinhardt/hmm/actions/workflows/main.yml)
+
 Find out what you did today with `hmm`.
 
 It lists all your commits from repositories it finds.
