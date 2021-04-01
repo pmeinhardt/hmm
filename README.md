@@ -16,6 +16,8 @@ git clone https://github.com/pmeinhardt/hmm.git ~/.hmm
 echo 'export PATH="$PATH:$HOME/.hmm/bin"' >> ~/.bashrc # or ~/.zshrc or …
 ```
 
+Note that `hmm` depends on [`fd`](https://github.com/sharkdp/fd). You will have to install it separately.
+
 ### Using Homebrew
 
 You can use [Homebrew](https://github.com/Homebrew/brew) to install `hmm`.
