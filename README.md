@@ -26,7 +26,7 @@ You can use [Homebrew](https://github.com/Homebrew/brew) to install `hmm`.
 
 ```shell
 brew tap pmeinhardt/tools
-brew install --HEAD hmm
+brew install --HEAD pmeinhardt/tools/hmm
 ```
 
 ### Vim plugin
