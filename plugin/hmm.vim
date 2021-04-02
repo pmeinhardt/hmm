@@ -50,12 +50,23 @@ function! s:new(bang, args) abort
   call cursor(1, 1)
 endfunction
 
-let s:flags = ['--max-depth', '--since']
+let s:allflags = ['--max-depth', '--since']
+
+function! s:flags(lead) abort
+  return filter(copy(s:allflags), 'strpart(v:val, 0, strlen(a:lead)) ==# a:lead')
+endfunction
+
+function! s:paths(lead) abort
+  let paths = glob(a:lead . '*/', 0, 1)
+  let parent = substitute(a:lead, '\(^\|\/\)\.\{0,2}$', '\1../', '')
+  let paths = index(paths, parent) < 0 && isdirectory(parent) ? extend(paths, [parent]) : paths
+  return len(paths) == 1 && paths[0] =~# '\/\.\.\/' ? [] : paths
+endfunction
 
 function! s:complete(lead, ...) abort
-  let flags = filter(copy(s:flags), 'strpart(v:val, 0, strlen(a:lead)) ==# a:lead')
-  let paths = a:lead =~# '-' ? [] : glob(a:lead . '*/', 0, 1)
-  return extend(flags, extend(paths, ['../']))
+  let flags = s:flags(a:lead)
+  let paths = a:lead =~# '^-' ? [] : s:paths(a:lead)
+  return extend(flags, paths)
 endfunction
 
 command! -bang -nargs=* -complete=customlist,s:complete Hmm call s:new(<q-bang>, <q-args>)
