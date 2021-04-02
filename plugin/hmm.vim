@@ -26,9 +26,9 @@ function! s:new(bang, args) abort
 
   let output = systemlist(cmd)
 
-  if a:bang == '!'
+  if !empty(a:bang)
     %delete
-  elseif !(empty(bufname('%')) && line('$') == 1 && getline(1) == '')
+  elseif !(empty(bufname('%')) && line('$') == 1 && empty(getline(1)))
     new
   endif
 
