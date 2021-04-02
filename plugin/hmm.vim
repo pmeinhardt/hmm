@@ -58,9 +58,9 @@ endfunction
 
 function! s:paths(lead) abort
   let paths = glob(a:lead . '*/', 0, 1)
-  let parent = substitute(a:lead, '\(^\|\/\)\.\{0,2}$', '\1../', '')
+  let parent = substitute(a:lead, '\v(^|\/)\.{0,2}$', '\1../', '')
   let paths = index(paths, parent) < 0 && isdirectory(parent) ? extend(paths, [parent]) : paths
-  return len(paths) == 1 && paths[0] =~# '\/\.\.\/' ? [] : paths
+  return len(paths) == 1 && paths[0] =~# '\v\/\.\.\/' ? [] : paths
 endfunction
 
 function! s:complete(lead, ...) abort
