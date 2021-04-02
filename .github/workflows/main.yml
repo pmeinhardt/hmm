@@ -37,3 +37,9 @@ jobs:
             sdesbure/yamllint \
             yamllint \
             .github/workflows/main.yml
+  command:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run command
+        run: bin/hmm --help
