@@ -48,7 +48,7 @@ function! s:new(bang, args) abort
   call cursor(1, 1)
 endfunction
 
-let s:all_flags = ['--max-depth', '--since']
+let s:all_flags = ['--max-depth', '--since', '--until']
 
 function! s:flags(lead) abort
   return filter(copy(s:all_flags), 'strpart(v:val, 0, strlen(a:lead)) ==# a:lead')
