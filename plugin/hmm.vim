@@ -4,17 +4,15 @@ endif
 let g:loaded_hmm = 1
 
 function! s:format(type) abort
-  if a:type == ','
-    silent :%s/\v\n/, /
-    silent :%s/\v, $//
-  elseif a:type == ';'
-    silent :%s/\v\n/; /
-    silent :%s/\v; $//
-  elseif a:type == '-'
-    silent :%s/\v^/- /
+  if a:type ==# ','
+    :%s/\v\n/, /
+    :%s/\v, $//
+  elseif a:type ==# ';'
+    :%s/\v\n/; /
+    :%s/\v; $//
+  elseif a:type ==# '-'
+    :%s/\v^/- /
   endif
-
-  silent :nohlsearch
 endfunction
 
 function! s:new(bang, args) abort
