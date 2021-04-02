@@ -35,6 +35,10 @@ function help {
   echo "  hmm | ruby -e 'print STDIN.readlines.map(&:strip).join(\"; \")' | pbcopy"
 }
 
+function unknown {
+  echo "Unexpected argument: ${1}"
+}
+
 # Parse arguments
 
 positional=()
@@ -56,6 +60,10 @@ while [ $# -gt 0 ]; do
     --help)
       help
       exit 0
+      ;;
+    --*)
+      unknown "$1"
+      exit 1
       ;;
     *)
       positional+=("$1")
