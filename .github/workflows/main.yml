@@ -25,6 +25,19 @@ jobs:
             --volume "$PWD:/mnt" \
             koalaman/shellcheck:stable \
             bin/hmm
+  vint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install vim-vint
+      - name: Run vint
+        run: vint --error .
   yamllint:
     runs-on: ubuntu-latest
     steps:
