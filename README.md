@@ -55,6 +55,12 @@ If you want to go further back in time, you can use:
 hmm --since '2 days ago'
 ```
 
+If you want to exclude recent entries, you can use:
+
+```shell
+hmm --since '2 days ago' --until '1 day ago'
+```
+
 Date parsing is handled by [Git](https://git-scm.com/docs/git-log#_commit_limiting), so you can express dates in all kinds of ways: `yesterday`, `2 days ago`, `8:00 AM CEST`, `January 2019`, `2019-01-01` and [more](https://github.com/git/git/blob/master/date.c).
 
 By default, `hmm` will search for Git repositories up to 3 levels down from your current working directory. If you need logs for other directories, simply pass them as arguments:
