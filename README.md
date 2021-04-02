@@ -22,11 +22,17 @@ Note that `hmm` depends on [`fd`](https://github.com/sharkdp/fd). You will have 
 
 ### Using Homebrew
 
-You can use [Homebrew](https://github.com/Homebrew/brew) to install `hmm`.
+You can use [Homebrew](https://github.com/Homebrew/brew) to install `hmm`:
 
 ```shell
 brew tap pmeinhardt/tools
 brew install --HEAD pmeinhardt/tools/hmm
+```
+
+To upgrade, run:
+
+```shell
+brew upgrade --fetch-HEAD pmeinhardt/tools/hmm
 ```
 
 ### Vim plugin
