@@ -7,6 +7,14 @@ Find out what you did today with `hmm`.
 It lists all your commits from repositories it finds.
 Use it to prepare your daily stand-up or to write job logs.
 
+```text
+$ hmm --since '8 am'
+Add option for "--until"
+Add a sanity check
+Tweak Vim plugin command handling
+Improve Vim plugin directory completion
+```
+
 ## Installation
 
 ### Using Git
