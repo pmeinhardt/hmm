@@ -82,7 +82,7 @@ searchlog="git --git-dir={} --no-pager log --author=\"<\$(git --git-dir={} confi
 
 exec fd \
   --max-depth "$maxdepth" \
-  --type d \
+  --type directory \
   --hidden \
   --exec bash -c "$searchlog" \; \
   '^\.git$' \
