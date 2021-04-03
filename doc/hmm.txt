@@ -20,9 +20,9 @@ These commands integrate the `hmm` command-line utility with Vim.
 
 MAPS                                            *hmm-maps*
 
-<localleader>,             Join all lines into one separated by ", ".
+<localleader>,             Join all lines into one, separated by ", ".
 
-<localleader>;             Join all lines into one separated by "; ".
+<localleader>;             Join all lines into one, separated by "; ".
 
 <localleader>-             Prefix all lines with "- " to make a list.
 
