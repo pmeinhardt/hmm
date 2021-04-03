@@ -84,6 +84,7 @@ exec fd \
   --max-depth "$maxdepth" \
   --type directory \
   --hidden \
+  --prune \
   --exec bash -c "$searchlog" \; \
   '^\.git$' \
   "$@"
