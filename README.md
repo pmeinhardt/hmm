@@ -35,6 +35,8 @@ To upgrade, run:
 brew upgrade --fetch-HEAD pmeinhardt/tools/hmm
 ```
 
+If you like `hmm`, consider checking out the other formulae available from the [pmeinhardt/tools](https://github.com/pmeinhardt/homebrew-tools) tap.
+
 ### Vim plugin
 
 There is a Vim plugin for `hmm`. If you use [vim-plug](https://github.com/junegunn/vim-plug), add this line to your Vim configuration file:
