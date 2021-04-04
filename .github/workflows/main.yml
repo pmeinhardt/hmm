@@ -42,14 +42,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Run yamllint
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      - name: Install dependencies
         run: |
-          docker run \
-            --rm \
-            --volume "$PWD:/yaml" \
-            sdesbure/yamllint \
-            yamllint \
-            .github/workflows/main.yml
+          pip install --upgrade pip
+          pip install yamllint
+      - name: Run yamllint
+        run: yamllint .
   command:
     runs-on: ubuntu-latest
     steps:
