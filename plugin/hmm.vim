@@ -5,13 +5,13 @@ let g:loaded_hmm = 1
 
 function! s:format(type) abort
   if a:type ==# ','
-    :%s/\v\n/, /
-    :%s/\v, $//
+    :silent %s/\v\n/, /
+    :silent %s/\v, $//
   elseif a:type ==# ';'
-    :%s/\v\n/; /
-    :%s/\v; $//
+    :silent %s/\v\n/; /
+    :silent %s/\v; $//
   elseif a:type ==# '-'
-    :%s/\v^/- /
+    :silent %s/\v^/- /
   endif
 endfunction
 
