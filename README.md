@@ -6,10 +6,6 @@ Quickly find out what you've been working on with `hmm`.
 
 ```text
 $ hmm --since '8 am'
-Add option for "--until"
-Add a sanity check
-Tweak Vim plugin command handling
-Improve Vim plugin directory completion
 ```
 
 It prints summaries of your commits from local repositories.<br>
